@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Game</title>
+    <!-- jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Word Game</h1>
+    <p>Guess the word based on its synonym.</p>
+    <!-- Add your HTML elements here -->
+
+    <script>
+        $(document).ready(function() {
+            var word = 'bright'; // Example word
+            $.ajax({
+                method: 'GET',
+                url: 'https://api.api-ninjas.com/v1/thesaurus?word=' + word,
+                headers: { 'X-Api-Key': 'YOUR_API_KEY' }, // Replace with your API Key
+                contentType: 'application/json',
+                success: function(result) {
+                    console.log(result);
+                    // You can update the DOM here based on the result
+                },
+                error: function ajaxError(jqXHR) {
+                    console.error('Error: ', jqXHR.responseText);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
