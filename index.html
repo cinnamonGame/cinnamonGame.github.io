@@ -6,37 +6,24 @@
     <title>Word Game</title>
     <!-- jQuery Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <style>
-        /* Add your CSS styles here */
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>Word Game</h1>
-    <p>Guess the word based on its synonym.</p>
-    <!-- Add your HTML elements here -->
+    <h1 class="fade-in" style="animation-delay: 0s;">Synnamon</h1>
+    <p class="fade-in" style="animation-delay: 1s;">Guess the word based on its synonyms and antonyms.</p>
+    <button class="fade-in" style="animation-delay: 2s" id="synButton">See a synonym</button>
+    <button class="fade-in" style="animation-delay: 2s" id="antButton">See an antonym</button>
+    <br>
 
-    <script>
-        $(document).ready(function() {
-            var word = 'lose'; // Example word
-            $.ajax({
-                method: 'GET',
-                url: 'https://api.api-ninjas.com/v1/thesaurus?word=' + word,
-                headers: { 'X-Api-Key': 'zPi8MJoFrthPcqZEBshcyw==kgGJkphC8E5L7Hmv' }, // Replace with your API Key
-                contentType: 'application/json',
-                success: function(result) {
-                    console.log(result);
-                    // You can update the DOM here based on the result
-                },
-                error: function ajaxError(jqXHR) {
-                    console.error('Error: ', jqXHR.responseText);
-                }
-            });
-        });
-    </script>
+    <p id="synonym1" style="opacity:0">Loading synonym...</p>
+    <p id="synonym2" style="opacity:0">Guess to reveal more</p>
+    <p id="synonym3" style="opacity:0">Guess to reveal more</p>
+    <p id="synonym4" style="opacity:0">Guess to reveal more</p>
+    <p id="synonym5" style="opacity:0">Guess to reveal more</p>
+    <p id="synonym6" style="opacity:0">Guess to reveal more</p>
+    <input style="opacity:0" type="text" id="guess" placeholder="Enter your guess here">
+    <button style="opacity:0" onclick="checkGuess()">Guess</button>
+
+    <script src="app.js"></script>
 </body>
 </html>
